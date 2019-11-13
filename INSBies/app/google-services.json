@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1099014158862",
+    "firebase_url": "https://insbies-d10e0.firebaseio.com",
+    "project_id": "insbies-d10e0",
+    "storage_bucket": "insbies-d10e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099014158862:android:7cb183c67b78b9c5f39a5f",
+        "android_client_info": {
+          "package_name": "com.example.insbies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099014158862-rtsl3rvnplh1pgvn8m0nbqdj3bop28p1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.insbies",
+            "certificate_hash": "6256b75c360e1caeef0be3949ef21fbbd903fb93"
+          }
+        },
+        {
+          "client_id": "1099014158862-9h7roe2hfcnv7gpnufv9el176cd2q5rj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnH_IEw1NE8XYwwptSxgjPi4UpdIN2frI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1099014158862-9h7roe2hfcnv7gpnufv9el176cd2q5rj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
