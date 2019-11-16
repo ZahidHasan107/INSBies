@@ -34,4 +34,9 @@
         android:name="com.example.insbies.profile"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.example.insbies.chat"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 </navigation>
