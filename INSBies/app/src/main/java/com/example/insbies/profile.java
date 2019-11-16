@@ -21,16 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link profile.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link profile#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class profile extends Fragment {
 
 
@@ -75,11 +68,19 @@ public class profile extends Fragment {
                     String pro_name_= ""+ds.child("name").getValue();
                     String Pro_email= ""+ds.child("email").getValue();
                     String pro_mobile= ""+ds.child("mobile").getValue();
+                    String image=""+ds.child("img").getValue();
 
                     //set
                     name.setText(pro_name_);
                     email.setText(Pro_email);
                     mobile.setText(pro_mobile);
+                    try {
+                        Picasso.get().load(image).into(img);
+
+                    }catch (Exception e)
+                    {
+                        Picasso.get().load(R.drawable.ic_menu_camera).into(img);
+                    }
 
                 }
 
