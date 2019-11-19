@@ -6,8 +6,128 @@
     android:layout_height="match_parent"
 
 
-    android:background="#AED7A7F0"
+    android:background="#AEE7E7EE"
     tools:context=".chat_activity">
+
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="#512164"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="InvalidId">
+
+
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+
+            android:id="@+id/profilechat"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/face_img"
+            app:c_background_color="#CAF1C5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+        android:gravity="center">
+
+
+
+            <TextView
+                android:id="@+id/username"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="His_Name"
+                android:textColor="#F7F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+
+            <TextView
+                android:id="@+id/activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textColor="#F7F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/chat_recylerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/chatlayout" />
+
+
+
+
+        <LinearLayout
+            android:id="@+id/chatlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ffff"
+            android:gravity="center"
+            android:orientation="horizontal"
+
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/messageEt"
+                android:background="@null"
+                android:hint="Start Typing"
+                android:padding="15dp"
+                android:inputType="textCapSentences|textMultiLine">
+
+
+            </EditText>
+
+
+
+
+            <ImageButton
+                android:id="@+id/sendButton"
+                android:background="@null"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/face_img"
+
+            />
+
+
+
+
+        </LinearLayout>
+
 
 
 

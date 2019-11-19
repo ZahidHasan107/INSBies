@@ -1,4 +1,4 @@
-package com.example.insbies;
+package com.example.insbies.models;
 
 public class ModelUsers {
 
