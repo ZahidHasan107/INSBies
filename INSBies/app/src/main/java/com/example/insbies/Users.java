@@ -1,5 +1,6 @@
 package com.example.insbies;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,12 +31,47 @@ public class Users extends Fragment {
     RecyclerView recyclerView;
     AdapterUsers adapterUsers;
     List<ModelUsers> usersList;
+    FirebaseAuth firebaseAuth;
 
 
     public Users() {
         // Required empty public constructor
     }
 
+
+
+
+    private void checkuserStatus(){
+
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+
+
+
+
+
+
+        }
+        else
+        {
+
+
+            startActivity(new Intent(getActivity(),MainActivity.class));
+            getActivity().finish();
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,6 +121,13 @@ public class Users extends Fragment {
 
                 }
             }
+
+
+
+
+
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
