@@ -42,8 +42,7 @@
         android:id="@+id/isseenIV"
         android:gravity="end"
         android:textAlignment="textEnd"
-        android:text="delivered"
-        android:visibility="gone"/>
+        android:text="delivered" />
 
 
 </LinearLayout>

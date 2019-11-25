@@ -121,14 +121,6 @@ public class Users extends Fragment {
 
                 }
             }
-
-
-
-
-
-
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

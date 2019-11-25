@@ -39,7 +39,7 @@ public class  AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
 
 
 
-        return new MyHolder(view);
+        return new AdapterUsers.MyHolder(view);
     }
 
     @Override

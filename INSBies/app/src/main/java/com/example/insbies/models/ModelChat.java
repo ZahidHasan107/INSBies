@@ -1,35 +1,35 @@
 package com.example.insbies.models;
 
 public class ModelChat {
-    String message,reciver,sender,timestamp;
+    String messege,reciever,sender,timestamp;
     boolean isSeen;
 
     public ModelChat() {
 
     }
 
-    public ModelChat(String message, String reciver, String sender, String timestamp, boolean isSeen) {
-        this.message = message;
-        this.reciver = reciver;
+    public ModelChat(String messege, String reciever, String sender, String timestamp, boolean isSeen) {
+        this.messege = messege;
+        this.reciever = reciever;
         this.sender = sender;
         this.timestamp = timestamp;
         this.isSeen = isSeen;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMessege() {
+        return messege;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessge(String message) {
+        this.messege = message;
     }
 
-    public String getReciver() {
-        return reciver;
+    public String getReciever() {
+        return reciever;
     }
 
-    public void setReciver(String reciver) {
-        this.reciver = reciver;
+    public void setReciver(String reciever) {
+        this.reciever = reciever;
     }
 
     public String getSender() {

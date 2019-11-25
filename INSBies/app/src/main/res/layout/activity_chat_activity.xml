@@ -87,6 +87,7 @@
 
 
 
+
         <LinearLayout
             android:id="@+id/chatlayout"
             android:layout_width="match_parent"
