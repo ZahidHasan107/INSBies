@@ -130,6 +130,7 @@ public class chat_activity extends AppCompatActivity {
                     //
                     sendMessage(message);
                 }
+               messegeEt.setText("");
 
             }
         });
