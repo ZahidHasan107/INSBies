@@ -450,7 +450,7 @@ public class profile extends Fragment {
            case STORAGE_REQUEST_CODE:
            {
                if(grantResults.length>0){
-                   boolean WriteStorageAccepted=grantResults[1]==PackageManager.PERMISSION_GRANTED;
+                   boolean WriteStorageAccepted=grantResults[0]==PackageManager.PERMISSION_GRANTED;
                    if(WriteStorageAccepted){
                        pickFromGallery();
 
@@ -485,7 +485,7 @@ public class profile extends Fragment {
     private void pickFromCamera() {
 
         ContentValues values=new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE,"Temp pic");
+        values.put(MediaStore.Images.Media.TITLE,"Temp pick");
         values.put(MediaStore.Images.Media.DESCRIPTION,"Temp discription");
         //put uri
 

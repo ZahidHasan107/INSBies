@@ -15,7 +15,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pTotle"
+            android:id="@+id/pTitle"
             android:background="@drawable/edittextstyle"
             android:hint="Enter Title"
             android:singleLine="true"

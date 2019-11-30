@@ -140,6 +140,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
+        if(item.getItemId()==R.id.action_add_post){
+            startActivity(new Intent(MainActivity.this,AddPostActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
