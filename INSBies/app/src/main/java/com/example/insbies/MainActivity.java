@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +30,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.Arrays;
@@ -37,11 +45,19 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageView main_img;
+    TextView main_name,main_email;
+
+
+
     private AppBarConfiguration mAppBarConfiguration;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    FirebaseUser user;
+    DatabaseReference databaseReference;
+    StorageReference storageReference;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
 
@@ -72,9 +88,11 @@ public class MainActivity extends AppCompatActivity {
        //     }
        // });
 
+        main_img=findViewById(R.id.imageView);
+        main_name=findViewById(R.id.main_name);
+        main_email=findViewById(R.id.textView);
 
-
-
+        //
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -92,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
 
         checkInternetConnectivity();
         listenForAuthentication();
+
+        //user
+
+
 
 
     }
@@ -165,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
                 // showNotification(user.getEmail());
 
 
+
+
+
                 // ...
             } else if (resultCode == RESULT_CANCELED) {
                 finish();
@@ -191,10 +216,13 @@ public class MainActivity extends AppCompatActivity {
                                 .setTheme(R.style.AppTheme)
                                 .build(),
                         RC_SIGN_IN);
+
+
             }
             else
             {
                 app_bar.setVisibility(View.VISIBLE);
+
 
             }
         };
