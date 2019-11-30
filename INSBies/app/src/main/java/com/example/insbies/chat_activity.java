@@ -38,22 +38,19 @@ import java.util.List;
 
 
 public class chat_activity extends AppCompatActivity {
-
-<<<<<<< HEAD
     Toolbar toolbar;
   ImageView imageView;
   TextView name,activity;
   EditText messegeEt;
   ImageButton send;
-=======
-        Toolbar toolbar;
+
+
       RecyclerView recyclerView;
 
-      ImageView imageView;
-      TextView nameib,activity;
-      EditText messegeEt;
-      ImageButton send;
->>>>>>> b407bf046cea3708f6ac74a864782dc4d31e8db4
+
+      TextView nameib;
+
+
 
     String hisuid,myuid;
     String hisImage;
@@ -79,14 +76,14 @@ public class chat_activity extends AppCompatActivity {
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
-<<<<<<< HEAD
+
         //imageView=(ImageView) findViewById(R.id.);
         name=findViewById(R.id.username);
-=======
+
         recyclerView = findViewById(R.id.chat_recylerView);
         imageView=(ImageView) findViewById(R.id.profilechat);
         nameib=findViewById(R.id.username);
->>>>>>> b407bf046cea3708f6ac74a864782dc4d31e8db4
+
         activity=findViewById(R.id.activity);
          messegeEt=findViewById(R.id.messageEt);
          send=findViewById(R.id.sendButton);

@@ -74,6 +74,13 @@
     </androidx.appcompat.widget.Toolbar>
 
 
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/chat_recylerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/chatlayout" />
 
 
 
@@ -82,7 +89,7 @@
 
 
 
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/chatlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

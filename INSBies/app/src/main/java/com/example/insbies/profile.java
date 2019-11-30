@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -496,5 +497,16 @@ public class profile extends Fragment {
         startActivityForResult(camerainternt,IMAGE_PICK_CAMERA_CODE);
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) {
+
+        }
+        if(item.getItemId()==R.id.action_add_post)
+        {
+            startActivity(new Intent(getActivity(), AddPostActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
