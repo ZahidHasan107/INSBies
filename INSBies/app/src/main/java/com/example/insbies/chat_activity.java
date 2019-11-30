@@ -15,7 +15,6 @@ import android.widget.TextView;
 public class chat_activity extends AppCompatActivity {
 
     Toolbar toolbar;
-  RecyclerView recyclerView;
   ImageView imageView;
   TextView name,activity;
   EditText messegeEt;
@@ -33,7 +32,6 @@ public class chat_activity extends AppCompatActivity {
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
-        recyclerView=findViewById(R.id.user_recyclerview);
         //imageView=(ImageView) findViewById(R.id.);
         name=findViewById(R.id.username);
         activity=findViewById(R.id.activity);
