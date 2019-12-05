@@ -13,10 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPostActivity"></activity>
+        <activity android:name=".ThereProfile"></activity>
+        <activity android:name=".AddPostActivity" />
         <activity
             android:name=".chat_activity"
-            android:theme="@style/AppThemeNO"></activity>
+            android:theme="@style/AppThemeNO" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

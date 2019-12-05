@@ -1,5 +1,6 @@
 package com.example.insbies;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -77,6 +78,7 @@ public class Users extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_users, container, false);
+
 
         //init recyclearview
         recyclerView=view.findViewById(R.id.user_recyclerview);

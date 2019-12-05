@@ -2,16 +2,16 @@ package com.example.insbies.models;
 
 public class ModelUsers {
 
-    String name,email,mobile,img,major,blood,address,position;
+    String name,email,mobile,image,major,blood,address,position;
 
     public ModelUsers() {
     }
 
-    public ModelUsers(String name, String email, String mobile, String img, String major, String blood, String address, String position) {
+    public ModelUsers(String name, String email, String mobile, String image, String major, String blood, String address, String position) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
-        this.img = img;
+        this.image = image;
         this.major = major;
         this.blood = blood;
         this.address = address;
@@ -43,11 +43,11 @@ public class ModelUsers {
     }
 
     public String getImg() {
-        return img;
+        return image;
     }
 
     public void setImg(String img) {
-        this.img = img;
+        this.image = img;
     }
 
     public String getMajor() {

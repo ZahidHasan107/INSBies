@@ -1,6 +1,8 @@
 package com.example.insbies.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.insbies.R;
+import com.example.insbies.ThereProfile;
 import com.example.insbies.chat_activity;
 import com.example.insbies.models.ModelUsers;
 import com.squareup.picasso.Picasso;
@@ -67,10 +70,35 @@ public class  AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
             @Override
             public void onClick(View v) {
                // Toast.makeText(context, ""+UserEmail, Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(context,chat_activity.class);
-                intent.putExtra("UserEmail",UserEmail);
-                context.startActivity(intent);
 
+
+                //show dialog
+                AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                builder.setItems(new String[]{"Profile", "Chat"}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        if(i==0)
+                        {
+                            Intent intent=new Intent(context, ThereProfile.class);
+                            intent.putExtra("UserEmail",UserEmail);
+                            context.startActivity(intent);
+
+                        }
+                        if(i==1)
+                        {
+                            Intent intent=new Intent(context,chat_activity.class);
+                            intent.putExtra("UserEmail",UserEmail);
+                            context.startActivity(intent);
+
+                        }
+
+
+
+                    }
+                });
+
+                builder.create().show();
 
             }
         });

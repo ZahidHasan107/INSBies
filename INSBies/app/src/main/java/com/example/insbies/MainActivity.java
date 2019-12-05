@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 12;
 

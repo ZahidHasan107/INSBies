@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/profile2"
         android:name="com.example.insbies.profile"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/chat"
@@ -36,6 +36,6 @@
     <fragment
         android:id="@+id/users"
         android:name="com.example.insbies.Users"
-        android:label="fragment_users"
+        android:label="Users"
         tools:layout="@layout/fragment_users" />
 </navigation>

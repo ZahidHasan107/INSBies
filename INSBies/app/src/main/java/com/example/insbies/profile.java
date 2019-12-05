@@ -14,9 +14,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -30,6 +33,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.insbies.adapters.AdapterPosts;
+import com.example.insbies.models.ModelPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -46,7 +51,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.security.Key;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.firebase.storage.FirebaseStorage.getInstance;
@@ -64,9 +72,10 @@ public class profile extends Fragment {
     String storagepath="user_profile_imgs/";
 
     TextView name,email,mobile;
-    ImageView img,cover;
+    ImageView Avter,cover;
     FloatingActionButton fab;
     ProgressDialog pd;
+    RecyclerView postRecyclerview;
 
 
     //permission
@@ -81,6 +90,10 @@ public class profile extends Fragment {
 
     Uri image_uri;
 
+    List<ModelPost> postList;
+    AdapterPosts adapterPosts;
+    String Email;
+
 
 
 
@@ -91,6 +104,9 @@ public class profile extends Fragment {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
 
         //init firebase
         ba=FirebaseAuth.getInstance();
@@ -106,11 +122,13 @@ public class profile extends Fragment {
         name=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
         mobile=view.findViewById(R.id.phone);
-        img=view.findViewById(R.id.profile);
+        Avter=view.findViewById(R.id.profile);
         cover=view.findViewById(R.id.coverimg);
         fab=view.findViewById(R.id.fab);
+        postRecyclerview=view.findViewById(R.id.recyclerview_post);
 
         pd=new ProgressDialog(getActivity());
+
 
 
 
@@ -126,18 +144,18 @@ public class profile extends Fragment {
                     String pro_name_= ""+ds.child("name").getValue();
                     String Pro_email= ""+ds.child("email").getValue();
                     String pro_mobile= ""+ds.child("mobile").getValue();
-                    String image=""+ds.child("imgage").getValue();
+                    String image=""+ds.child("image").getValue();
 
                     //set
                     name.setText(pro_name_);
                     email.setText(Pro_email);
                     mobile.setText(pro_mobile);
                     try {
-                        Picasso.get().load(image).into(img);
+                        Picasso.get().load(image).placeholder(R.drawable.face_img).into(Avter);
 
                     }catch (Exception e)
                     {
-                        Picasso.get().load(R.drawable.ic_menu_camera).into(img);
+
                     }
 
                 }
@@ -157,13 +175,49 @@ public class profile extends Fragment {
             }
         });
 
+        postList=new ArrayList<>();
 
-
-
+        checkUserStatus();
+        loadMyPosts();
 
 
 
         return view;
+    }
+
+    private void loadMyPosts() {
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
+        layoutManager.setStackFromEnd(true);
+        layoutManager.setReverseLayout(true);
+        postRecyclerview.setLayoutManager(layoutManager);
+
+        //init post list
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Posts");
+        Query query=ref.orderByChild("UEmail").equalTo(Email);
+        //get item
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postList.clear();
+                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                    ModelPost mypost=ds.getValue(ModelPost.class);
+
+                    postList.add(mypost);
+
+                    adapterPosts=new AdapterPosts(getActivity(),postList);
+
+                    postRecyclerview.setAdapter(adapterPosts);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), ""+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     private boolean checkStoragePermission(){
@@ -286,9 +340,29 @@ public class profile extends Fragment {
 
                                 }
                             });
+                    //also change post user name
+                    if(key.equals("name")){
+                        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Posts");
+                        Query query=ref.orderByChild("UEmail").equalTo(Email);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                                    String child=ds.getKey();
+                                    dataSnapshot.getRef().child(child).child("uName").setValue(value);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
                 }
                 else {
-                    Toast.makeText(getActivity(), "Please enter", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please enter"+key, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -405,6 +479,27 @@ public class profile extends Fragment {
                             Toast.makeText(getActivity(), "Error updating Image", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    //
+
+                    if(profile.equals("image")){
+                        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Posts");
+                        Query query=ref.orderByChild("UEmail").equalTo(Email);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for(DataSnapshot ds:dataSnapshot.getChildren()){
+                                    String child=ds.getKey();
+                                    dataSnapshot.getRef().child(child).child("uDp").setValue(downloadUri.toString());
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
                 }
                 else {
                     pd.dismiss();
@@ -509,4 +604,17 @@ public class profile extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+    private  void checkUserStatus(){
+        FirebaseUser user=ba.getCurrentUser();
+        if(user!=null){
+            Email=user.getEmail();
+
+        }
+        else {
+            startActivity(new Intent(getActivity(),MainActivity.class));
+            getActivity().finish();
+        }
+    }
+
+
 }
