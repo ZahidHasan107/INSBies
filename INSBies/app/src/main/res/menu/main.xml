@@ -7,10 +7,17 @@
         android:title="@string/action_logout"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_help"
+        android:orderInCategory="100"
+        android:title="HELP"
+        app:showAsAction="always"
+        android:icon="@drawable/img_help"/>
+    <item
         android:id="@+id/action_add_post"
         android:orderInCategory="100"
         android:title="Add Post"
         app:showAsAction="always"
         android:icon="@drawable/img_add"/>
+
 
 </menu>

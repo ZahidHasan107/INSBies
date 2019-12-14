@@ -139,8 +139,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
-        if(item.getItemId()==R.id.action_add_post){
+       else if(item.getItemId()==R.id.action_add_post){
             startActivity(new Intent(MainActivity.this,AddPostActivity.class));
+        }
+        else if(item.getItemId()==R.id.action_help){
+            startActivity(new Intent(MainActivity.this,Help.class));
         }
         return super.onOptionsItemSelected(item);
     }
