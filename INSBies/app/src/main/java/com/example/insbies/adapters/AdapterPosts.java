@@ -53,7 +53,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
     public AdapterPosts(Context context, List<ModelPost> postList) {
         this.context = context;
         this.postList = postList;
-        myUid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+       // myUid= FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
 
