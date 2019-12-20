@@ -83,7 +83,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         String dateTime= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
         //set data
         holder.uName.setText(uName);
-        holder.pTime.setText(pTimeStamp);
+        holder.pTime.setText(dateTime);
         holder.pTitle.setText(pTitle);
         holder.pDescription.setText(pDescription);
         //dp
@@ -283,7 +283,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             pTime=itemView.findViewById(R.id.uTimeIv);
             pTitle=itemView.findViewById(R.id.pTitleIv);
             pDescription=itemView.findViewById(R.id.pDescriptionIv);
-            pLike=itemView.findViewById(R.id.pLikeIv);
+           // pLike=itemView.findViewById(R.id.pLikeIv);
             likebtn=itemView.findViewById(R.id.likeBtn);
             commentbtn=itemView.findViewById(R.id.commentBtn);
             shatebtn=itemView.findViewById(R.id.shareBtn);

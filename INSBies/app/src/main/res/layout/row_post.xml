@@ -83,12 +83,6 @@
             android:id="@+id/pImage"
             android:background="#fff"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/pLikeIv"
-            android:text="1.2k Like"
-            android:textColor="@color/colorPrimaryDark"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
