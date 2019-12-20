@@ -160,7 +160,7 @@ public class chat_activity extends AppCompatActivity {
                     ModelChat chat=ds.getValue(ModelChat.class);
 
                     String meg=chat.getMessege();
-                    Toast.makeText(chat_activity.this, meg, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(chat_activity.this, meg, Toast.LENGTH_SHORT).show();
                   //  Toast.makeText(chat_activity.this, sender, Toast.LENGTH_SHORT).show();
 
 

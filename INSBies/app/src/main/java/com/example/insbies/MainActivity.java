@@ -43,12 +43,12 @@ import com.squareup.picasso.Picasso;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.google.firebase.storage.FirebaseStorage.getInstance;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView main_img;
     TextView main_name,main_email;
-
-
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -111,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
         listenForAuthentication();
 
         //user
-
-
 
 
     }
@@ -190,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 // showNotification(user.getEmail());
-
 
 
 

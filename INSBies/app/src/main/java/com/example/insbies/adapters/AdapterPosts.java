@@ -83,7 +83,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         String dateTime= DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
         //set data
         holder.uName.setText(uName);
-        holder.pTime.setText(pTimeStamp);
+        holder.pTime.setText(dateTime);
         holder.pTitle.setText(pTitle);
         holder.pDescription.setText(pDescription);
         //dp
