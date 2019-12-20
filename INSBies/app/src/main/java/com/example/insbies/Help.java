@@ -132,10 +132,7 @@ public class Help extends AppCompatActivity {
         //what is the time?
         //open the browser
         if(command.indexOf("what")!=-1){
-            if(command.indexOf("your name")!=-1){
 
-               speak("My name is koko.");
-            }
             if(command.indexOf("time")!=-1){
                 Date now = new Date();
                 String time= DateUtils.formatDateTime(this,now.getTime(),
@@ -143,14 +140,34 @@ public class Help extends AppCompatActivity {
                 speak("The time is "+time);
             }
         }
-        else if(command.indexOf("open")!=-1){
-            if(command.indexOf("browser")!=-1){
-                Intent intent=new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.youtube.com/watch?v=AnNJPf-4T70&list=PLP1n3T1Ps9nrBcUk63xIZBNzq_lUTx1A6&index=26&t=3s"));
-                startActivity(intent);
-            }
-
+        else if(command.indexOf("upcoming conferences")!=-1){
+             speak("2020 IEEE Power & Energy Society Innovative Smart Grid Technologies Conference (ISGT) , 2020 IEEE International Solid- State Circuits Conference - (ISSCC) , " +
+                     "2020 IEEE Aerospace Conference, 2020 IEEE Radio and Wireless Symposium (RWS)");
+            // Intent intent=new Intent(Intent.ACTION_VIEW,
+           //          Uri.parse("https://www.ieee.org/conferences/index.html"));
+            // startActivity(intent);
         }
+
+         else if(command.indexOf("publications of IEEE till now")!=-1){
+             speak("IEEE Xplore®");
+             speak("IEEE Spectrum®");
+             speak("IEEE Open");
+             speak("IEEE Access");
+             speak("Proceedings of the IEEE");
+             speak("IEEE DataPort");
+            // Intent intent=new Intent(Intent.ACTION_VIEW,
+                  //   Uri.parse("https://www.ieee.org/publications/index.html"));
+            // startActivity(intent);
+         }
+        else if(command.indexOf("renew membership")!=-1)
+         {
+             Intent intent=new Intent(Intent.ACTION_VIEW,
+                     Uri.parse("https://www.ieee.org/membership/join-renew.html?WT.mc_id=mem_lp_jor"));
+             startActivity(intent);
+         }
+         else {
+             speak("i cann't reach ");
+         }
 
     }
 
@@ -167,7 +184,7 @@ public class Help extends AppCompatActivity {
                 else
                 {
                     myTTs.setLanguage(Locale.US);
-                    speak("hello! i am ready.");
+                    speak("How can i help you.");
                 }
 
             }
