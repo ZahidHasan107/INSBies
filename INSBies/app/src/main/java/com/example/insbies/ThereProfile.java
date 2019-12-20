@@ -34,7 +34,7 @@ public class ThereProfile extends AppCompatActivity {
     AdapterPosts adapterPosts;
     String Email;
 
-    TextView name,email,mobile;
+    TextView name,email,mobile,uaddress,ublood,umajor,uposition;;
     ImageView img,cover;
 
     FirebaseAuth firebaseAuth;
@@ -57,6 +57,10 @@ public class ThereProfile extends AppCompatActivity {
         mobile=findViewById(R.id.phone);
         img=findViewById(R.id.profile);
         cover=findViewById(R.id.coverimg);
+        uaddress=findViewById(R.id.addres);
+        ublood=findViewById(R.id.blood);
+        umajor=findViewById(R.id.major);
+        uposition=findViewById(R.id.position);
 
         Intent intent=getIntent();
         Email=intent.getStringExtra("UserEmail");
@@ -74,11 +78,21 @@ public class ThereProfile extends AppCompatActivity {
                     String Pro_email= ""+ds.child("email").getValue();
                     String pro_mobile= ""+ds.child("mobile").getValue();
                     String image=""+ds.child("imgage").getValue();
+                    String pro_add=""+ds.child("address").getValue();
+                    String pro_blood=""+ds.child("blood").getValue();
+                    String pro_major=""+ds.child("major").getValue();
+                    String pro_position=""+ds.child("position").getValue();
+
 
                     //set
                     name.setText(pro_name_);
                     email.setText(Pro_email);
                     mobile.setText(pro_mobile);
+                    uaddress.setText(pro_add);
+                    ublood.setText(pro_blood);
+                    umajor.setText(pro_major);
+                    uposition.setText(pro_position);
+
                     try {
                         Picasso.get().load(image).into(img);
 

@@ -283,7 +283,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             pTime=itemView.findViewById(R.id.uTimeIv);
             pTitle=itemView.findViewById(R.id.pTitleIv);
             pDescription=itemView.findViewById(R.id.pDescriptionIv);
-            pLike=itemView.findViewById(R.id.pLikeIv);
+           // pLike=itemView.findViewById(R.id.pLikeIv);
             likebtn=itemView.findViewById(R.id.likeBtn);
             commentbtn=itemView.findViewById(R.id.commentBtn);
             shatebtn=itemView.findViewById(R.id.shareBtn);

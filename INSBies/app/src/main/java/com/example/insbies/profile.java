@@ -71,7 +71,7 @@ public class profile extends Fragment {
     StorageReference storageReference;
     String storagepath="user_profile_imgs/";
 
-    TextView name,email,mobile;
+    TextView name,email,mobile,uaddress,ublood,umajor,uposition;
     ImageView Avter,cover;
     FloatingActionButton fab;
     ProgressDialog pd;
@@ -126,6 +126,10 @@ public class profile extends Fragment {
         cover=view.findViewById(R.id.coverimg);
         fab=view.findViewById(R.id.fab);
         postRecyclerview=view.findViewById(R.id.recyclerview_post);
+        uaddress=view.findViewById(R.id.addres);
+        ublood=view.findViewById(R.id.blood);
+        umajor=view.findViewById(R.id.major);
+        uposition=view.findViewById(R.id.position);
 
         pd=new ProgressDialog(getActivity());
 
@@ -145,11 +149,19 @@ public class profile extends Fragment {
                     String Pro_email= ""+ds.child("email").getValue();
                     String pro_mobile= ""+ds.child("mobile").getValue();
                     String image=""+ds.child("image").getValue();
+                    String pro_add=""+ds.child("address").getValue();
+                    String pro_blood=""+ds.child("blood").getValue();
+                    String pro_major=""+ds.child("major").getValue();
+                    String pro_position=""+ds.child("position").getValue();
 
                     //set
                     name.setText(pro_name_);
                     email.setText(Pro_email);
                     mobile.setText(pro_mobile);
+                    uaddress.setText(pro_add);
+                    ublood.setText(pro_blood);
+                    umajor.setText(pro_major);
+                    uposition.setText(pro_position);
                     try {
                         Picasso.get().load(image).placeholder(R.drawable.face_img).into(Avter);
 
