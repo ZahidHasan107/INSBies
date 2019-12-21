@@ -149,12 +149,12 @@ public class Help extends AppCompatActivity {
         }
 
          else if(command.indexOf("publications of IEEE till now")!=-1){
-             speak("IEEE Xplore®");
-             speak("IEEE Spectrum®");
-             speak("IEEE Open");
-             speak("IEEE Access");
-             speak("Proceedings of the IEEE");
-             speak("IEEE DataPort");
+             speak("IEEE Xplore®" +
+                     "IEEE Spectrum®" +
+                     "IEEE Open"+
+                     "IEEE Access"+
+                     "Proceedings of the IEEE"+
+                     "IEEE DataPort");
             // Intent intent=new Intent(Intent.ACTION_VIEW,
                   //   Uri.parse("https://www.ieee.org/publications/index.html"));
             // startActivity(intent);
